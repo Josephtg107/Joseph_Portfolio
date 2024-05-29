@@ -63,6 +63,12 @@ body {
     font-weight: 700;
 }
 
+.home-content h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: azure;
+}
+
 .home-content h3 {
     font-size: 32px;
     font-weight: 700;
@@ -131,5 +137,51 @@ body {
 }
 
 .btn-box a:hover::before {
+    width: 100%;
+} 
+
+.home-sci {
+    position: absolute;
+    bottom: 40px;
+    width: 170px; 
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.home-sci a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid aqua;
+    border-radius: 50%;
+    font-size: 20px;
+    color: aqua;
+    text-decoration: none;
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.home-sci a:hover {
+    color: #081b29;
+}
+
+.home-sci a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: aqua;
+    z-index: -1;
+    transition: .5s;
+}
+
+.home-sci a:hover:before {
     width: 100%;
 }
