@@ -1,18 +1,24 @@
+/* CSS with adjustments for landscape orientation */
+
+/* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-
+/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', 'sans-serif';
 }
 
+/* Body */
 body {
+    font-family: 'Poppins', sans-serif;
     background: #081b29;
     color: #ededed;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
+/* Header */
 .header {
     position: fixed;
     top: 0;
@@ -33,20 +39,52 @@ body {
     font-weight: 600;
 }
 
+/* Navigation */
+.navbar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent black background */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar.active {
+    display: flex;
+}
+
 .navbar a {
-    font-size: 18px;
+    font-size: 24px;
     color: #ededed;
     text-decoration: none;
     font-weight: 500;
-    margin-left: 35px;
-    transition: .2s;
+    margin: 20px 0;
+    transition: 0.3s;
 }
 
-.navbar a:hover,
-.navbar a.active {
-    color: #081b29;
+.navbar a:hover {
+    color: aqua;
 }
 
+/* Toggle button for mobile navbar */
+.navbar-toggle {
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #ededed;
+    cursor: pointer;
+    z-index: 101; /* Ensure the toggle button is above other elements */
+}
+
+/* Home Section */
 .home {
     height: 100vh;
     display: flex;
@@ -87,7 +125,7 @@ body {
     margin: 20px 0 40px;
 }
 
-.home-content .btn-box {
+.btn-box {
     display: flex;
     justify-content: space-between;
     width: 345px;
@@ -191,4 +229,42 @@ body {
 
 .home-sci a:hover:before {
     width: 100%;
+}
+
+/* Media Queries */
+@media (min-width: 769px) {
+    .navbar {
+        display: flex;
+        position: static;
+        background-color: transparent;
+        flex-direction: row;
+        justify-content: flex-end;
+        height: auto;
+    }
+
+    .navbar-toggle {
+        display: none; /* Hide toggle button on larger screens */
+    }
+}
+
+/* Media Queries for landscape orientation */
+@media screen and (orientation: landscape) {
+    .home {
+        flex-direction: row;
+    }
+
+    .home-content {
+        max-width: 50%; /* Adjust the width as needed */
+    }
+
+    .home-sci {
+        position: static;
+        width: auto;
+        margin-left: auto; /* Align to the right */
+        margin-right: 20px; /* Add some spacing */
+        margin-top: 0;
+        bottom: auto;
+        display: flex;
+        flex-direction: column;
+    }
 }
