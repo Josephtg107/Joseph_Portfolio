@@ -84,6 +84,26 @@ body {
     z-index: 101; /* Ensure the toggle button is above other elements */
 }
 
+/* Adjust spacing for navbar links on larger screens */
+@media (min-width: 769px) {
+    .navbar {
+        display: flex;
+        position: static;
+        background-color: transparent;
+        flex-direction: row;
+        justify-content: flex-end;
+        height: auto;
+    }
+
+    .navbar-toggle {
+        display: none; /* Hide toggle button on larger screens */
+    }
+
+    .navbar a {
+        margin: 0 15px; /* Add spacing between the navbar items */
+    }
+}
+
 /* Home Section */
 .home {
     height: 100vh;
@@ -244,6 +264,10 @@ body {
 
     .navbar-toggle {
         display: none; /* Hide toggle button on larger screens */
+    }
+
+    .navbar a {
+        margin: 0 15px; /* Add spacing between the navbar items */
     }
 }
 
