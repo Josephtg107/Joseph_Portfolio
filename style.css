@@ -274,7 +274,6 @@ body {
     }
 }
 
-/* Media Queries for landscape orientation */
 @media screen and (orientation: landscape) {
     .home {
         flex-direction: row;
@@ -287,11 +286,12 @@ body {
     .home-sci {
         position: static;
         width: auto;
-        margin-left: auto; /* Align to the right */
-        margin-right: 20px; /* Add some spacing */
+        margin-left: 20px; /* Add some spacing from the left */
+        margin-right: 20px; /* Add some spacing from the right */
         margin-top: 0;
         bottom: auto;
         display: flex;
         flex-direction: column;
     }
 }
+
