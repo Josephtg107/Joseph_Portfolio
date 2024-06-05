@@ -1,6 +1,31 @@
-
-
 document.addEventListener('DOMContentLoaded', () => {
+    // Function to simulate typing animation
+    function typeText(element, text, speed) {
+        let currentIndex = 0;
+        const typingInterval = setInterval(() => {
+            if (currentIndex < text.length) {
+                element.textContent += text.charAt(currentIndex);
+                currentIndex++;
+            } else {
+                clearInterval(typingInterval);
+            }
+        }, speed);
+    }
+
+    // Text elements and their corresponding text and typing speeds
+    const textElements = [
+        { element: document.querySelector(".home-content h1"), text: "Hello, my name is José García", speed: 100 },
+        { element: document.querySelector(".home-content h2 span"), text: "Ted.", speed: 100 },
+        { element: document.querySelector(".home-content h3"), text: "iOS Developer", speed: 100 },
+        { element: document.querySelector(".home-content p"), text: "iOS Developer | Mobile App Developer | Tech Enthusiast | Continuous Learner | Aspiring Traveler.", speed: 50 }
+    ];
+
+    // Start typing animation for each text element
+    textElements.forEach(item => {
+        typeText(item.element, item.text, item.speed);
+    });
+
+    // Rest of your code remains unchanged
     // Function to change name
     const names = ["Ted.", "Joe.", "Theodore", "Joseph.", "Teddy.", "Josepho.", "Theo.", "Jouse."];
     let currentIndex = 0;

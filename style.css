@@ -211,9 +211,8 @@ body {
 
 .home-sci {
     position: absolute;
-    bottom: 20px; /* Reduced bottom margin */
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 20px; 
+    left: 10%;
     width: 170px;
     display: flex;
     justify-content: space-evenly;
