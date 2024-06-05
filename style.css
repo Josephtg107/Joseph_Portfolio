@@ -109,6 +109,7 @@ body {
     height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 0 10%;
     background: url('/Images/NavyBackgroundProfileSide.png') no-repeat;
     background-size: cover;
@@ -206,12 +207,14 @@ body {
 
 .btn-box a:hover::before {
     width: 100%;
-} 
+}
 
 .home-sci {
     position: absolute;
-    bottom: 40px;
-    width: 170px; 
+    bottom: 20px; /* Reduced bottom margin */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 170px;
     display: flex;
     justify-content: space-evenly;
 }
@@ -254,6 +257,63 @@ body {
     width: 100%;
 }
 
+/* About Section */
+.about {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10%;
+    background: #001F3F;
+    color: #ededed;
+    margin-top: -50px; /* Adjust this value as needed */
+}
+
+.about-content {
+    max-width: 800px;
+    text-align: center;
+}
+
+.about-content h1 {
+    font-size: 45px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Contact Button */
+.btn-contact {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-contact a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background: #007FFF;
+    border: 2px solid #007FFF;
+    border-radius: 8px;
+    font-size: 19px;
+    color: #081b29;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: 0.4s;
+}
+
+.btn-contact a:hover {
+    background: transparent;
+    color: #007FFF;
+}
+
 /* Media Queries */
 @media (min-width: 769px) {
     .navbar {
@@ -282,16 +342,4 @@ body {
     .home-content {
         max-width: 50%; /* Adjust the width as needed */
     }
-
-    .home-sci {
-        position: static;
-        width: auto;
-        margin-left: 20px; /* Add some spacing from the left */
-        margin-right: 20px; /* Add some spacing from the right */
-        margin-top: 0;
-        bottom: auto;
-        display: flex;
-        flex-direction: column;
-    }
 }
-
