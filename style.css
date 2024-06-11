@@ -10,7 +10,11 @@
     box-sizing: border-box;
 }
 
-/* Body */
+/* Ensure full height */
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background: #001F3F;
@@ -106,14 +110,13 @@ body {
 
 /* Home Section */
 .home {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 10%;
-    background: url('/Images/NavyBackgroundProfileSide.png') no-repeat;
+    background: url('/Images/NavyBackgroundProfileSide.png') no-repeat center center;
     background-size: cover;
-    background-position: center;
 }
 
 .home-content {
@@ -123,6 +126,10 @@ body {
 .home-content h1 {
     font-size: 45px;
     font-weight: 700;
+}
+
+.home-content h1 span {
+    margin-top: 0;;
 }
 
 #changingName {
@@ -258,14 +265,13 @@ body {
 
 /* About Section */
 .about {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0 10%;
     background: #001F3F;
     color: #ededed;
-    margin-top: -50px; /* Adjust this value as needed */
 }
 
 .about-content {
@@ -342,3 +348,59 @@ body {
         max-width: 50%; /* Adjust the width as needed */
     }
 }
+
+/* Fade-in effect */
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+}
+
+
+.mySwiper {
+    position: relative;
+    max-width: 1000px;
+    max-height: 820px;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+    background: #000;
+  }
+
+  .swiper-slide {
+    font-size: 18px;
+    color: #fff;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 40px 60px;
+  }
+
+  .parallax-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 130%;
+    height: 100%;
+    background-position: center;
+    opacity: 0.2;
+  }
+
+  .swiper-slide .title {
+    font-size: 41px;
+    font-weight: 300;
+  }
+
+  .swiper-slide .subtitle {
+    font-size: 21px;
+  }
+
+  .swiper-slide .text {
+    font-size: 14px;
+    max-width: 400px;
+    line-height: 1.3;
+  }
