@@ -16,14 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Text elements and their corresponding text and typing speeds
     const textElements = [
         { element: document.querySelector(".home-content h1"), text: "Hello, my name is José García", speed: 45 },
-        { element: document.querySelector(".home-content h2 span"), text: "Ted.", speed: 65 },
-        { element: document.querySelector(".home-content h3"), text: "iOS Developer", speed: 90 },
-        { element: document.querySelector(".home-content p"), text: "iOS Developer | Mobile App Developer | Tech Enthusiast | Continuous Learner | Aspiring Traveler.", speed: 15 }
+        { element: document.querySelector(".home-content h2 span"), text: "Ted.", speed: 45 },
+        { element: document.querySelector(".home-content h3"), text: "iOS Developer", speed: 60 },
+        { element: document.querySelector(".home-content p"), text: "iOS Developer | Mobile App Developer | Tech Enthusiast | Continuous Learner | Aspiring Traveler | Adventurer | Gym Enthusiast.", speed: 5 }
     ];
 
     // Function to start name changing animation
     function startNameChangingAnimation() {
-        const names = ["Ted.", "Joe.", "Theodore", "Joseph.", "Teddy.", "Josepho.", "Theo.", "Jouse."];
+        const names = ["Ted.", "Joe.", "Theodore.", "Joseph.", "Teddy.", "Josepho.", "Theo.", "Jouse."];
         let currentIndex = 0;
         const nameElement = document.getElementById("changingName");
 
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 350); // Half of the transition time to change the text in between the fade-out and fade-in
         }
 
-        setInterval(changeName, 3500); // Adjust the interval to 3500ms to better reflect the change timing
+        setInterval(changeName, 850); // Adjust the interval to 3500ms to better reflect the change timing
         changeName();
     }
 
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Trigger the fade-in effect
                     setTimeout(() => {
                         callMeText.classList.add('visible');
-                    }, 100);
+                    }, 950);
                 }
                 startTypingAnimations(index + 1); // Start the next animation after the current one finishes
             });
@@ -83,21 +83,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // Swiper Slider
-var swiper = new Swiper(".mySwiper", {
-    speed: 600,
-    parallax: true,
-    loop: true,
-    autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
+document.addEventListener('DOMContentLoaded', () => {
+    var swiper = new Swiper(".mySwiper", {
+        speed: 600,
+        parallax: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+});
 // End of Swiper Slider
