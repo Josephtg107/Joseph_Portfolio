@@ -374,20 +374,21 @@ body {
 .btn-box {
     display: flex;
     flex-direction: column; /* Stack buttons vertically on small screens */
+    justify-content: center; /* Center align buttons */
     align-items: center;
-    gap: 2px; /* Space between buttons */
-    margin-top: 10px; /* Adjust as needed */
+    gap: 20px; /* Space between buttons */
+    margin-top: 20px; /* Adjust top margin as needed */
 }
 
 .btn-box a {
     display: inline-block;
-    padding: 10px 30px;
+    padding: 10px 20px;
     background-color: #333;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
     text-align: center;
-    transition: transform 1s ease, background-color 1s ease; /* Ensure easing effect */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Ensure easing effect */
 }
 
 .btn-box a:hover {
@@ -398,7 +399,7 @@ body {
 @media (min-width: 769px) {
     .btn-box {
         flex-direction: row; /* Display buttons in a row on larger screens */
-        gap: 55px; /* Increase space between buttons */
+        gap: 30px; /* Increase space between buttons */
         margin-top: 0; /* Reset top margin */
     }
 }
