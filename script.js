@@ -1,76 +1,50 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Function to simulate typing animation
-    function typeText(element, text, speed, callback) {
-        let currentIndex = 0;
-        const typingInterval = setInterval(() => {
-            if (currentIndex < text.length) {
-                element.textContent += text.charAt(currentIndex);
-                currentIndex++;
-            } else {
-                clearInterval(typingInterval);
-                if (callback) callback();
-            }
-        }, speed);
+    // Typing animation function
+    function typeText(element, text, speed) {
+        return new Promise((resolve) => {
+            let currentIndex = 0;
+            const typingInterval = setInterval(() => {
+                if (currentIndex < text.length) {
+                    element.textContent += text.charAt(currentIndex);
+                    currentIndex++;
+                } else {
+                    clearInterval(typingInterval);
+                    resolve();
+                }
+            }, speed);
+        });
     }
 
     // Text elements and their corresponding text and typing speeds
     const textElements = [
         { element: document.querySelector(".home-content h1"), text: "Hello, my name is José García", speed: 45 },
-        { element: document.querySelector(".home-content h2 span"), text: "Ted.", speed: 45 },
         { element: document.querySelector(".home-content h3"), text: "iOS Developer", speed: 60 },
-        { element: document.querySelector(".home-content p"), text: "iOS Developer | Mobile App Developer | Tech Enthusiast | Continuous Learner | Aspiring Traveler | Adventurer | Gym Enthusiast.", speed: 5 }
+        { element: document.querySelector(".home-content p"), text: "iOS Developer | Mobile App Developer | Tech Enthusiast | Continuous Learner | Aspiring Traveler | Adventurer | Gym Enthusiast.", speed: 15 }
     ];
 
-    // Function to start name changing animation
-    function startNameChangingAnimation() {
-        const names = ["Ted.", "Joe.", "Theodore.", "Joseph.", "Teddy.", "Josepho.", "Theo.", "Jouse."];
-        let currentIndex = 0;
-        const nameElement = document.getElementById("changingName");
-
-        function changeName() {
-            // Fade out
-            nameElement.style.opacity = 0;
-            setTimeout(() => {
-                // Change text
-                nameElement.textContent = names[currentIndex];
-                // Fade in
-                nameElement.style.opacity = 1;
-                // Update index
-                currentIndex = (currentIndex + 1) % names.length;
-            }, 350); // Half of the transition time to change the text in between the fade-out and fade-in
+    // Function to start typing animations sequentially
+    async function startTypingAnimations() {
+        for (let item of textElements) {
+            await typeText(item.element, item.text, item.speed);
         }
 
-        setInterval(changeName, 850); // Adjust the interval to 3500ms to better reflect the change timing
-        changeName();
+        // After all text animations are complete, reveal the buttons with fade-in animation
+        const btnBox = document.querySelector('.btn-box');
+        btnBox.classList.remove('hidden');
+        fadeIn(btnBox); // Call fadeIn function to animate the buttons
     }
 
-    // Start typing animation for each text element sequentially
-    function startTypingAnimations(index) {
-        if (index < textElements.length) {
-            const item = textElements[index];
-            typeText(item.element, item.text, item.speed, () => {
-                if (index === 0) {
-                    // Create and append "But you can call me..." part after the first text is typed
-                    const callMeText = document.createElement("span");
-                    callMeText.classList.add("fade-in");
-                    callMeText.innerHTML = ' But you can call me <span id="changingName"></span>';
-                    item.element.appendChild(callMeText);
-
-                    // Trigger the fade-in effect
-                    setTimeout(() => {
-                        callMeText.classList.add('visible');
-                    }, 950);
-                }
-                startTypingAnimations(index + 1); // Start the next animation after the current one finishes
-            });
-        } else {
-            startNameChangingAnimation(); // Start name changing animation after all typing animations are complete
-        }
+    // Function to fade in an element
+    function fadeIn(element) {
+        element.style.opacity = 0;
+        element.style.transition = 'opacity 1s ease-in-out'; // Adjust timing function as needed
+        element.offsetHeight; // Trigger reflow to apply transition
+        element.style.opacity = 1;
     }
 
-    startTypingAnimations(0); // Start the typing animations from the first element
+    startTypingAnimations(); // Start the typing animations when DOM is loaded
 
-    // Mobile navbar toggle
+    // Mobile navbar toggle (if applicable, keep your existing code here)
     const navbarToggle = document.getElementById('navbar-toggle');
     const navbar = document.querySelector('.navbar');
 
@@ -80,21 +54,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-
-
-// Swiper Slider
-document.addEventListener('DOMContentLoaded', () => {
-    var swiper = new Swiper(".mySwiper", {
-        speed: 600,
-        parallax: true,
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-    });
-});
-// End of Swiper Slider
