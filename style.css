@@ -170,10 +170,11 @@ body {
 .home-sci {
     position: absolute;
     bottom: 20px; 
-    left: 10%;
+    left: 25%; /* Increase the left value to move the links to the right */
     width: 210px;
     display: flex;
     justify-content: space-evenly;
+    
 }
 
 .home-sci a {
@@ -375,23 +376,24 @@ body {
     flex-direction: column; /* Stack buttons vertically on small screens */
     justify-content: center; /* Center align buttons */
     align-items: center;
-    gap: 20px; /* Space between buttons */
-    margin-top: 20px; /* Adjust top margin as needed */
+    gap: 10px; /* Ensure there's space between the buttons */
+    margin-left: -80px; /* Adjust this value to move the buttons to the left */
 }
 
 .btn-box a {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #333;
+    background-color: var(--accent-color);
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
     text-align: center;
     transition: transform 0.3s ease, background-color 0.3s ease; /* Ensure easing effect */
+    margin: 25px;
 }
 
 .btn-box a:hover {
-    background-color: #555;
+    background-color: var(--clr-neon);
     transform: translateY(-5px); /* Add lift effect on hover */
 }
 
@@ -440,7 +442,7 @@ body {
     padding: 0.75em 1.5em; /* Increase padding */
     border-radius: 0.5em; /* Keep border-radius for better appearance */
     text-shadow: 
-      0 0 0.2em #FFF7,
+      0 0 0.2em #,
       0 0 0.3em var(--accent-color);
     box-shadow: 
       inset 0 0 0.5em var(--accent-color),
