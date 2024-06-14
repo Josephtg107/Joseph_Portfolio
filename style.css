@@ -50,6 +50,7 @@ body {
     background: var(--background-color);
     color: var(--text-color);
     overflow-x: hidden; /* Prevent horizontal scrolling */
+    margin: -4%;
 }
 
 /* Header */
@@ -325,7 +326,7 @@ body {
     justify-content: center; /* Center align buttons */
     align-items: center;
     gap: 5px; /* Ensure there's space between the buttons */
-    margin-left: -40px; /* Adjust this value to move the buttons to the left */
+    margin-left: -25px; /* Adjust this value to move the buttons to the left */
 }
 
 .btn-box a {

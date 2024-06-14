@@ -68,3 +68,21 @@ var swiper = new Swiper(".mySwiper", {
       prevEl: ".swiper-button-prev",
     },
   });
+
+      // Hide and show navbar on scroll
+      let lastScrollTop = 0;
+      const navbarHeight = navbar.offsetHeight;
+  
+      window.addEventListener('scroll', () => {
+          let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+          if (scrollTop > lastScrollTop) {
+              // Scroll down
+              navbar.style.top = `-${navbarHeight}px`;
+          } else {
+              // Scroll up
+              navbar.style.top = 0;
+          }
+  
+          lastScrollTop = scrollTop;
+      });
